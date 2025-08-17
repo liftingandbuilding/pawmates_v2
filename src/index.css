@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* PawMates Tamagotchi-style Design System 
+All colors MUST be HSL. Pastel gradients, soft shadows, playful vibes.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Main app background - purple-pink gradient */
+    --background: 320 100% 97%;
+    --foreground: 260 15% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Cards - soft white with subtle tint */
+    --card: 320 50% 98%;
+    --card-foreground: 260 15% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 320 50% 98%;
+    --popover-foreground: 260 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - bubblegum pink */
+    --primary: 320 85% 75%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - soft lilac */
+    --secondary: 280 60% 85%;
+    --secondary-foreground: 260 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - very light pastel */
+    --muted: 300 30% 92%;
+    --muted-foreground: 260 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - sky blue */
+    --accent: 200 80% 80%;
+    --accent-foreground: 260 15% 25%;
+
+    /* Success/XP - bright mint green */
+    --success: 150 70% 65%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - peach */
+    --warning: 30 85% 75%;
+    --warning-foreground: 260 15% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 320 30% 90%;
+    --input: 320 30% 95%;
+    --ring: 320 85% 75%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Custom gradients */
+    --gradient-main: linear-gradient(135deg, hsl(280 100% 85%) 0%, hsl(320 100% 85%) 100%);
+    --gradient-pink: linear-gradient(135deg, hsl(320 85% 75%) 0%, hsl(300 85% 80%) 100%);
+    --gradient-blue: linear-gradient(135deg, hsl(200 80% 80%) 0%, hsl(220 80% 85%) 100%);
+    --gradient-green: linear-gradient(135deg, hsl(150 70% 65%) 0%, hsl(170 70% 70%) 100%);
+
+    /* Shadows - soft and playful */
+    --shadow-soft: 0 4px 12px hsl(320 50% 80% / 0.15);
+    --shadow-float: 0 8px 25px hsl(320 70% 70% / 0.25);
+    --shadow-inset: inset 0 2px 4px hsl(320 30% 85% / 0.3);
+
+    /* Animation timing */
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,43 +84,7 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  /* PawMates stays cute in all themes - no dark mode needed for this playful app */
 }
 
 @layer base {
@@ -100,6 +93,105 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+    background: var(--gradient-main);
+    min-height: 100vh;
+  }
+
+  /* Typography */
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+  }
+
+  .font-body {
+    font-family: 'Fredoka', sans-serif;
+  }
+}
+
+@layer components {
+  /* Custom animations */
+  .animate-pulse-soft {
+    animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 1s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Pet bubble styles */
+  .pet-bubble {
+    @apply relative bg-gradient-to-br from-primary/80 to-secondary/80 
+           backdrop-blur-sm rounded-full border border-white/30
+           shadow-soft transition-all duration-300 ease-bounce
+           hover:scale-110 hover:shadow-float;
+  }
+
+  .pet-bubble::before {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-gradient-to-br 
+           from-white/20 to-transparent opacity-60;
+  }
+
+  /* Chat bubble styles */
+  .chat-bubble-sent {
+    @apply bg-gradient-to-br from-primary to-primary/80 
+           text-primary-foreground rounded-t-2xl rounded-bl-2xl
+           shadow-soft relative;
+  }
+
+  .chat-bubble-received {
+    @apply bg-gradient-to-br from-secondary to-secondary/80 
+           text-secondary-foreground rounded-t-2xl rounded-br-2xl
+           shadow-soft relative;
+  }
+
+  /* Card styles */
+  .card-soft {
+    @apply bg-card/80 backdrop-blur-sm rounded-2xl shadow-soft 
+           border border-white/30 transition-all duration-300;
+  }
+
+  .card-floating {
+    @apply card-soft hover:shadow-float hover:-translate-y-1 
+           transition-all duration-300 ease-bounce;
+  }
+}
+
+@layer utilities {
+  /* Custom keyframes */
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
   }
 }
