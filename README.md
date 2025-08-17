@@ -1,18 +1,10 @@
-# Welcome to your Lovable project
+# Welcome to PawMates [V2]
 
-## Project info
+## Read PRD Below:
 
-**URL**: https://lovable.dev/projects/6a92e1f3-7aa7-40ba-bca8-c66c6251aff5
+**URL**: https://www.notion.so/PRD-Project-PawMates-App-iOS-235acfb6981f8069acbec18bc9c86a7a
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/6a92e1f3-7aa7-40ba-bca8-c66c6251aff5) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+## Vibe Coded on Lovable
 
 **Use your preferred IDE**
 
